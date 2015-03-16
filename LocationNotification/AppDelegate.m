@@ -17,6 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    if ([[[UIDevice currentDevice]systemVersion]floatValue] >=  8.0) {
+
+        if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
+            
+        {
+            
+            [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        }
+    
+    }
+    
+
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
     return YES;
 }
 
@@ -26,20 +41,68 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    UILocalNotification *notification = [[UILocalNotification alloc]init];
+    [notification setAlertBody:@"Watch the Latest Episode of CCA-TV"];
+    NSDate * date = [NSDate dateWithTimeIntervalSinceNow:0];
+    [notification setFireDate:date];
+    [notification setRepeatInterval:NSCalendarUnitMinute];
+    [notification setTimeZone:[NSTimeZone defaultTimeZone]];
+    [notification setSoundName:UILocalNotificationDefaultSoundName];
+    NSDictionary * infoDic = [NSDictionary dictionaryWithObject:@"1" forKey:@"ActivityClock"];
+    notification.userInfo = infoDic;
+    
+    NSInteger x = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    self.count++;
+    notification.applicationIconBadgeNumber = self.count;
+    [[UIApplication sharedApplication]scheduleLocalNotification:notification];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"通知" message:notification.alertBody delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+
+    
+    
+//    UIApplication * app = [UIApplication sharedApplication];
+//    NSArray * localArray = [app scheduledLocalNotifications];
+//    UILocalNotification * localNotification;
+//    if (localArray) {
+//        for (UILocalNotification * noti in localArray) {
+//            NSDictionary * dict = noti.userInfo;
+//            if (dict) {
+//                NSString * inkey = [dict objectForKey:@"ActivityClock"];
+//                if ([inkey isEqualToString:@"1"]) {
+//                    if (localNotification) {
+//                        localNotification = nil;
+//                    }
+//
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//    
+//    if (!localNotification) {
+//        localNotification  = [[UILocalNotification alloc]init];
+//    }
+//    if (localNotification) {
+//        [app cancelLocalNotification:localNotification];
+//        return;
+//    }
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 @end

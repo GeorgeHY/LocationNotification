@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50345C56A3D9BBCEFD89E151 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5341381903B1A19F0CF49C /* libPods.a */; };
 		5CF8BACA1AB66CB000418ADC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8BAC91AB66CB000418ADC /* main.m */; };
 		5CF8BACD1AB66CB000418ADC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8BACC1AB66CB000418ADC /* AppDelegate.m */; };
 		5CF8BAD01AB66CB000418ADC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8BACF1AB66CB000418ADC /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		163922986AAA4F33C2528703 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4E77681B92BEC713E77FAC54 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5CF8BAC41AB66CB000418ADC /* LocationNotification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNotification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF8BAC81AB66CB000418ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CF8BAC91AB66CB000418ADC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		5CF8BADD1AB66CB000418ADC /* LocationNotificationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationNotificationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF8BAE21AB66CB000418ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CF8BAE31AB66CB000418ADC /* LocationNotificationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationNotificationTests.m; sourceTree = "<group>"; };
+		9A5341381903B1A19F0CF49C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50345C56A3D9BBCEFD89E151 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31C3A3C1C81CA58BD3556FF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E77681B92BEC713E77FAC54 /* Pods.debug.xcconfig */,
+				163922986AAA4F33C2528703 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5CF8BABB1AB66CAF00418ADC = {
 			isa = PBXGroup;
 			children = (
 				5CF8BAC61AB66CB000418ADC /* LocationNotification */,
 				5CF8BAE01AB66CB000418ADC /* LocationNotificationTests */,
 				5CF8BAC51AB66CB000418ADC /* Products */,
+				31C3A3C1C81CA58BD3556FF6 /* Pods */,
+				BD73431E02EB99AA6EA40CE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +135,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BD73431E02EB99AA6EA40CE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A5341381903B1A19F0CF49C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CF8BAE71AB66CB000418ADC /* Build configuration list for PBXNativeTarget "LocationNotification" */;
 			buildPhases = (
+				E502ECF5E3AE46173E42B7AE /* Check Pods Manifest.lock */,
 				5CF8BAC01AB66CB000418ADC /* Sources */,
 				5CF8BAC11AB66CB000418ADC /* Frameworks */,
 				5CF8BAC21AB66CB000418ADC /* Resources */,
+				AFFFF325FEB4988B459F59A2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AFFFF325FEB4988B459F59A2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E502ECF5E3AE46173E42B7AE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CF8BAC01AB66CB000418ADC /* Sources */ = {
@@ -341,21 +400,27 @@
 		};
 		5CF8BAE81AB66CB000418ADC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E77681B92BEC713E77FAC54 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LocationNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		5CF8BAE91AB66CB000418ADC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 163922986AAA4F33C2528703 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LocationNotification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};
@@ -412,6 +477,7 @@
 				5CF8BAE91AB66CB000418ADC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CF8BAEA1AB66CB000418ADC /* Build configuration list for PBXNativeTarget "LocationNotificationTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +486,7 @@
 				5CF8BAEC1AB66CB000418ADC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
